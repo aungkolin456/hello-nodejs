@@ -19,4 +19,5 @@ jobs:
         run: |
           eval "$(ssh-agent -s)"
           ssh-add - <<< "${DEPLOY_KEY}"
+          ssh-keyscan -H 164.92.189.203 >> ~/.ssh/known_hosts
           ssh root@164.92.189.203 "cd /root/hello-nodejs && git pull origin master"
